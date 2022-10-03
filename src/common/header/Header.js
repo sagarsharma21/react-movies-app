@@ -11,6 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
 import { useSlotProps } from '@mui/base';
+import PropTypes from 'prop-types';
 
 // const customStyles = {
 //     content: {
@@ -30,7 +31,9 @@ const TabContainer = function (props) {
         </Typography>
     )
 } 
-
+TabContainer.PropTypes = {
+    children: PropTypes.node.isRequired
+}
 class Header extends Component {
 
     constructor(){
@@ -82,6 +85,7 @@ class Header extends Component {
                         <Tab label="Login" />
                         <Tab label="Register" />    
                     </Tabs>     
+                    {this.state.value === 0 &&
                     <TabContainer>
                         <FormControl required>
                             <InputLabel htmlFor="username">Username</InputLabel>
@@ -94,6 +98,7 @@ class Header extends Component {
                         </FormControl>
                         <br></br>
                     </TabContainer>
+                    }
                 </Modal>
             </div>
         )
