@@ -13,17 +13,19 @@ import Input from '@mui/material/Input';
 import { useSlotProps } from '@mui/base';
 
 // const customStyles = {
-//     content : {
-//         import  { Component } from 'react',
-//         import './Header.css',
-//         import Button from '@mui/material/Button';
-//         import logo from '../../assets/logo1.svg';
+//     content: {
+    // top: '50%',
+    // left: '50%',
+    // bottom: 'auto',
+    // right: 'auto',
+    // marginRight: '-50%',
+    // Transform: 'translate(-50%,-50%)'
 //     }
 // };
 
-const TabContainer = function () {
+const TabContainer = function (props) {
     return (
-        <Typography component="div" style={{padding:0}}>
+            <Typography component="div" style={{padding: 0, textAlign: 'center'}}>
             {useSlotProps.children}
         </Typography>
     )
@@ -70,7 +72,7 @@ class Header extends Component {
                     onRequestClose={this.closeModalHandler}
                     // style={customStyles}
                     >
-                    <Tabs value={this.state.value} onChange={this.tabChangeHandler}>
+                    <Tabs className="tabs" value={this.state.value} onChange={this.tabChangeHandler}>
                         top: '50%',
                         left: '50%',
                         bottom: 'auto',
@@ -85,11 +87,12 @@ class Header extends Component {
                             <InputLabel htmlFor="username">Username</InputLabel>
                             <Input id="username" type="text" />  
                         </FormControl>
-
+                        <br></br>
                         <FormControl required>
                             <InputLabel htmlFor="password">Password</InputLabel>
                             <Input id="password" type="password" />
                         </FormControl>
+                        <br></br>
                     </TabContainer>
                 </Modal>
             </div>
